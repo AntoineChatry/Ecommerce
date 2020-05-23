@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hello!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>  
+  <body>
+    
+    <h2 class="title font-weight-bold font-italic" >Credits Card Generator</h2>
+    <div class="alert alert-danger title font-weight-bold font-italic" role="alert">
+  These card are only for e-commerce test.
+  </div>
+   
+    
+    <div class="car container">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+      </div>
+<!--  Name and fake credits card    -->
+    
+   <p id="dem" class="font-weight-bold"></p>
+    
+    <p id="de" class="title font-italic"></p>
+    <p id="demo" class="title font-italic"></p>
+<!--  CVV    -->
+    <p id="cod" class="title font-italic"></p>
+  <button class="btn btn-outline-primary" id="twofuns">Try it</button>
+
+
+<script>
+  var btn = document.querySelector('#twofuns');
+  btn.addEventListener('click',myFunction);
+  btn.addEventListener('click',generateName);
+  btn.addEventListener('click',cvv);
+function myFunction() { 
+  var min=1000000000000000; 
+  var max=9999999999999999;  
+  var random = Math.floor(Math.random() * (max - min)) + min; 
+  document.getElementById("demo").innerHTML = random;
+  var y = "Here is your card";
+  document.getElementById("dem").innerHTML = y;
+  
+}
+
+function capFirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function getRandomInt(min, max) {
+  	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function generateName(){
+	var name1 = ["Jack","Alvin","Mollie","Ava","Mary","Chrstine","Zoya","Chantelle","Vanessa","Mia","Eden","Pearl","Anas","Ioan","Theo","Stephen","Chris","Rocco","Ryan","Luis","Maxim","Jackson","Morgan","Lucas","Charlie","Julian","Arjun"];
+
+	var name2 = ["Graham","Walker","Reid","Wagner","Mullins","Gomez","Cole","Watson","King","Haynes","Phillips","Edwards","Weaver","Shelton","Griffin","Rogers","Person","Olson","Ortiz","Rodriguez","Howarth","Hammomnd","Drew","Bird","Mccathy"];
+
+	var name = capFirst(name1[getRandomInt(0, name1.length + 1)]) + ' ' + capFirst(name2[getRandomInt(0, name2.length + 1)]);
+	document.getElementById("de").innerHTML = name;
+
+}
+// CVV
+  function cvv() { 
+  var min=100; 
+  var max=999;  
+  var random = Math.floor(Math.random() * (max - min)) + min; 
+  document.getElementById("cod").innerHTML = random;
+  
+}
+</script>
+    
+  </body>
+</html>
